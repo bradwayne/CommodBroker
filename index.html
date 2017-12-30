@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8" />
+
+<head>
+    <title>SBS Commodity Broker</title>
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <link rel="icon" type="image/jpg" href="http://www.dalessandroegalli.com/images/events/thumbs/236.jpg?t=1452720982">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <!-- CSS file -->
+    <link rel="stylesheet" href="assets/javascript/easyAutocomplete/easy-autocomplete.min.css">
+    <!-- Additional CSS Themes file - not required-->
+    <link rel="stylesheet" href="assets/javascript/easyAutocomplete/easy-autocomplete.themes.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
+</head>
+
+<body>
+    <header class="navbar-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <a href="index.html"><img src="assets/images/sbs-logo.png"></a>
+                    <div class="navbar-form navbar-right">
+                        <a id="hypLogout" href="#"><span class="glyphicon glyphicon-log-out" title="logout" alt="logout" ></span></a>
+                        <a id="slideDownUser" href="#"><span class="glyphicon glyphicon-log-in" title="login" alt="login" aria-hidden="true"></span></a>
+                        <a id="slideDownTrending" href="#"><span class="glyphicon glyphicon-fire" title="trending" alt="trending" aria-hidden="true"></span></a>
+                        <a id="slideDownSearch" href="#"><span class="glyphicon glyphicon-search" title="quick search" alt="quick search" aria-hidden="true"></span></a>
+                        <a id="slideDownCommoditySearch" href="#">
+                            <button class="btn btn2"><strong>Search Field</strong></button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!--  <div class="background-image"></div>  -->
+    <div id="myCarousel" class="carousel slide carousel-fade background-image" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="item active">
+                <img src="assets/images/commod-b.ground-1.png" alt="bg1" style="width:100%;">
+            </div>
+            <div class="item">
+                <img src="assets/images/commod-b.ground-2.png" alt="bg2" style="width:100%;">
+            </div>
+            <div class="item">
+                <img src="assets/images/commod-b.ground-3.png" alt="bg3" style="width:100%;">
+            </div>
+        </div>
+    </div>
+    <div class="container wrapper">
+        <div class="social-container">
+            <div class="social facebook-container">
+                <img class="social-icon facebook" src="assets/images/facebook.svg" /></a>
+            </div>
+            <div class="social nasdaq-container">
+                <a href="http://www.nasdaq.com/markets/commodities.aspx" target="_blank">
+                	<img href="http://www.nasdaq.com/markets/commodities.aspx" class="social-icon nasdaq" src="assets/images/nasdaq.png"/>
+                </a>
+            </div>
+            <div class="social rss-container">
+                <a href="https://www.rss.com/" target="_blank"><img class="social-icon rss" src="assets/images/rss-1.png"/></a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div id="msg-center" class="alert"><!-- add class name dynamically in js --></div>
+                <div id="divName" class="alert alert-info"><label id="lblName"></label></div>
+                <div id="logout">
+                	<div class="row">
+                		<div class="container cold-md-12">
+                			<div class="panel">
+                				<div class="panel-heading"><h1 class="text-center">Sure you want to log out?</h1></div>	
+                				<div class="panel-body">
+									<div class="row">
+	                					<div class="col-sm-3"></div>
+				                		<div id="divLogoutYes" class="col-sm-3"><button class="btn btn2"><strong>Yes</strong></button></div>
+				                		<div id="divLogoutNo" class="col-sm-3"><button class="btn btn2"><strong>No</strong></button></div>
+				                		<div class="col-sm-3"></div>
+				                	</div>
+                				</div>
+                			</div>
+	                		
+	                		
+	                	</div>
+	                </div>
+                </div>
+                <div id="divAccount">
+                    <div class="row">
+                        <div class="divNewAccount col-md-6">
+                            <div class="panel">
+                                <div class="new-account-msg-box"></div>
+                                <div class="panel-heading">
+                                    <h1>Create Account</h1>
+                                </div>
+                                <div class="panel-body">
+                                    <div>
+                                        <label for="username">User ID</label>
+                                        <input type="text" class="form-control" id="txtNewUser" name="username" placeholder="New User Id">
+                                    </div>
+                                    <div>
+                                        <label for="password">Password</label>
+                                        <input type="password" class="form-control" id="txtPassword" name="password" placeholder="must be between 8 and 16 characters">
+                                    </div>
+                                    <div>
+                                        <label for="Confirm-Password">Confirm Password</label>
+                                        <input type="password" class="form-control" id="txtConfirmPassword" name="Confirm-Password" placeholder="Confirm User Password">
+                                    </div>
+
+                                    <div id="lower text-right">
+                                        <button id="cmdCreateAccount" class="btn btn3"><strong>Create Account</strong></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="divLogin col-md-6">
+                            <div class="panel">
+                                <div class="panel-heading">
+                                    <h1>Login</h1>
+                                </div>
+                                <div class="panel-body">
+                                    <div>
+                                        <label for="register">User ID</label>
+                                        <input type="text" id="txtUser" class="form-control" id="register" name="register" placeholder="Your User Id">
+                                    </div>
+                                    <div>
+                                        <label for="password">Password</label>
+                                        <input type="password" id="txtUserPassword" class="form-control" id="password" name="password" placeholder="Your User Password">
+                                    </div>
+                                    <div id="lower align-right">
+                                        <button id="cmdLogin" class="btn btn3"><strong>Login</strong></button>
+                                    </div>
+                                </div>
+                                <!--/ lower-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                </div>
+                <div class="col-md-6">
+                    <div class="search-container">
+                        <input type="text" class="form-control" id="txtQuickSearch" placeholder="Quick Search">
+                        <button id="cmdQuickSearch" type="submit" class="btn btn1"><strong>Submit</strong></button>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+	            <div class="row">
+	                <div class="col-md-6">
+	                </div>
+	                <div class="col-md-6">
+	                    <div class="panel commodity-search-container">
+	                        <div class="panel-heading">
+	                            <h1 for="Search">Search Commodity</h1>
+	                        </div>
+	                        <div class="panel-body">
+	                            <label for="refine-search">Refine Your Search</label>
+	                            <input type="text" class="form-control" id="txtCommoditySearch" placeholder="Commodity Search">
+	                            <div class="date-container">
+	                                <label class="refine-start-date"><strong>Start Date</strong></label>
+	                                <input id="dpStartDate" type="date" name="start">
+	                                <br>
+	                                <label class="refine-end-date"><strong>End Date</strong></label>
+	                                <input id="dpEndDate" type="date" name="end">
+	                            </div>
+	                            <button id="submit" type="submit" class="btn btn3"><strong>Submit</strong></button>
+	                            <span id="messageSent">Processing Your Commodity Search</span>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+            <div class="container">
+            <div class="trending-container row">
+	            <div class="col-md-6">
+                    <div class="trending-panel panel">
+                        <div class="panel-heading">
+                            <h1>Trending Commodity</h1>
+                        </div>
+                        <div class="panel-body">
+                            <table id="trending-table" class="table table-hover">
+                                <tbody class="trending-tbody">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+	            </div>
+                <div class="col-md-6">
+                    <div class="user-search-panel panel">
+                        <div class="panel-heading">
+                            <h1>User Most Search Commodity</h1>
+                        </div>
+                        <div class="panel-body">
+                            <table id="user-search-table" class="table table-hover">
+                                <tbody class="user-search-tbody">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+	        </div>
+	        </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="divCommodityInfo panel">
+                    <div class="panel-heading">
+                        <h1>
+                            
+                        </h1>
+                        <div class="commodityInfoHeader"></div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="commodity-info-container">
+                        </div>
+                        <div class="quandlDescription">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="divGraph panel">
+                    <div class="panel-heading">
+                        <h1 class="panel-title">Commodity Graphic Spread Sheet</h1>
+                    </div>
+                    <div class="panel-body">
+                        <div id="curve_chart"></div>
+                    </div>
+                    <form>
+                        <div class="panel-body">
+                            <label class="search">Refine Search: </label>
+                            <em>Start Date</em>
+                            <input id="dpGraphStartDate" type="date" name="start">
+                            <em>End Date</em>
+                            <input id="dpGraphEndDate" type="date" name="end">
+                            <button id="cmdGraphSubmit" type="submit" class="btn btn3">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row news-container">
+            <div class="col-md-12">
+                <div class="divNewsHeader news-head-container panel">
+                    <div class=" panel-heading">
+                        <h1 class="panel-title">World News Feed</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="divCommodityNews">
+                    <div>
+                        <div class="commodityNewsHeader"></div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="commodity-news-container">
+                        </div>
+                        <div class="popcomStory">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <br>
+    <br> -->
+    <!-- new background affects  -->
+    <footer>
+        <strong>Copyright &copy; 2017<strong> <a href="index.html"><img class="footer-logo" src="assets/images/sbs-logo.png"></a> 
+        	<span class="about-us"><a href="about-index.html">about us</a></span> | 
+        	<span class="what-we-do"><a href="what-we-do.html">what we do</a></span> 
+    </footer>
+
+    
+    <!-- Latest compiled and minified JavaScript -->
+    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    
+    <script type="text/javascript" src="https://www.gstatic.com/firebasejs/4.7.0/firebase.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.3/moment.min.js"></script>
+    <!-- <script type="text/javascript" data-main="assets/javascript/app.js" src="assets/javascript/require.js"></script>-->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
+    <script type="text/javascript" src="assets/javascript/easyAutocomplete/jquery.easy-autocomplete.min.js"></script> 
+    <script src="https://unpkg.com/infinite-scroll@3/dist/infinite-scroll.pkgd.min.js"></script>
+   <!--  <script src="assets/javascript/bgcarousel.js"></script>
+   <script src="assets/javascript/jquery.velocity.min.js"></script>
+    <script type="text/javascript" src="assets/javascript/jquery.touchSwipe.min.js"></script> -->
+    <script src="assets/javascript/app.js"></script>
+    <script>
+    </script>
+</body>
+
+</html>
